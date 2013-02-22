@@ -1,0 +1,6 @@
+body {margin:0;}
+body > section {display: none; padding-top: 80px;}
+body > section:target {display:block;}
+header {background-color: coral; color: white; top: 0;}
+nav {background-color: aliceblue; top: 40px;}
+.bar {width: 100%; height: 40px; overflow: hidden; text-align: center; position: fixed;}
