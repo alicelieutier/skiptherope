@@ -1,7 +1,7 @@
 {
   "version": "0.0.01",
   "name": "skipTheRope",
-  "launch_path": "http://alicelieutier.github.com/skiptherope/",
+  "launch_path": "/skiptherope/index.html",
   "description": "A fun rope skipping application.",
   "icons": {
     "16": "/applogos/logo16.png",
