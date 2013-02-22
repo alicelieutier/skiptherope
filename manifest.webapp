@@ -1,7 +1,7 @@
 {
   "version": "0.0.01",
   "name": "skipTheRope",
-  "launch_path": "index.html",
+  "launch_path": "http://alicelieutier.github.com/skiptherope/",
   "description": "A fun rope skipping application.",
   "icons": {
     "16": "/applogos/logo16.png",
@@ -12,8 +12,7 @@
   },
   "developer": {
     "name": "Alice S. Lieutier",
-    "email": "alice.lieutier@gmail.com",
-    "url": "http://alicelieutier.github.com/skiptherope/"
+    "email": "alice.lieutier@gmail.com"
   },
   "installs_allowed_from": ["*"],
   "default_locale": "en"
