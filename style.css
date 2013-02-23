@@ -1,4 +1,4 @@
-body {margin:0; font-family: arial; font-size: 20px; background: coral}
+body {margin:0; font-family: arial; font-size: 20px; background: rgb(105,250,250)}
 header {background-color: black; color: white; top: 0; font-size: 30px; padding-top: 5px;}
 .bar {width: 100%; height: 40px; overflow: hidden; text-align: center; position: fixed;}
 #home { 
@@ -29,7 +29,7 @@ header {background-color: black; color: white; top: 0; font-size: 30px; padding-
 	padding-right: 20px;
 	text-align: right;
 }
-#facebook {
+#form {
 	clear: both;
 }
-#btnInstall {display: block; float: right; color: white; background: black; border: none; }
+#btnInstall {display: block; float: right; color: white; background: black; border: none; font-size: 20px;}

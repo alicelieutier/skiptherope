@@ -11,7 +11,7 @@
     <header class="bar">
         <!-- <a href="javascript:history.back();">&lt;</a> -->
         Skip the Rope
-        <button id="btnInstall" hidden>install</button>
+        <button id="btnInstall" hidden>+</button>
     </header>
     <!-- <nav class="bar">
         <a href="#home">go to home</a> or 
@@ -21,10 +21,12 @@
         <div id="control" class="">Start skipping!</div>
 		<div id="skips">0</div>
 
-        <iframe id="facebook" src="https://www.facebook.com/plugins/like.php?href=http://alicelieutier.github.com/skiptherope/"
-        scrolling="no" frameborder="0"
-        style="border:none; width:450px; height:80px"></iframe>
-
+        <div id="form">
+            <select name="select-jump" id="select-jump">
+                <option value="1" selected>Simple jumps</option>
+                <option value="2">Double jumps</option>
+            </select>
+        </div>       
     </section>
     <script type="text/javascript">
         var threshold = 8;
@@ -65,7 +67,7 @@
             if (above) {
                 nb_of_skips += 1;
                 above = false;
-                document.getElementById('skips').textContent = nb_of_skips;
+                document.getElementById('skips').textContent = nb_of_skips / parseInt(document.getElementById('select-jump').value);
             }
             return; 
         }
