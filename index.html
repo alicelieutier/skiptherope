@@ -26,6 +26,12 @@
                 <option value="1" selected>Simple jumps</option>
                 <option value="2">Double jumps</option>
             </select>
+            <select name="select-gender" id="gender">
+                <option value="x" selected>Undefined</option>
+                <option value="f">Female</option>
+                <option value="m">Male</option>
+            </select>
+            <input id="weight" type="number">kg
         </div>       
     </section>
     <script type="text/javascript">
@@ -43,6 +49,11 @@
 
         function stop(event) {
             window.removeEventListener("devicemotion", count);
+            var weight = document.getElementById('weight').value;
+            var gender = document.getElementById('gender').value;
+            var cal = calories(nb_of_skips, gender, weight);
+
+            alert("Congrats, you just burnt " + cal + " calories! This is as much as " + bananas(cal) + " bananas.");
         }
 
         function control(event) {
@@ -71,6 +82,29 @@
             }
             return; 
         }
+
+        function calories(n, gender, weight) {
+            var calories;
+            
+            if (weight===0) {
+            weight = 70;
+            }
+            if (gender==='f') {
+                calories = (0.37/200) * (8*3.5*weight) * (2*n/60);
+            }
+            if (gender==='m') {
+                calories = (1/200)*(8*3.5*weight)*(2*n/60);
+            }
+            else {
+                calories = (1/200)*(8*3.5*weight)*(2*n/60);
+            }
+            return calories;
+        }
+        function bananas(calories) {
+            var banana = calories/100;    
+            return banana;
+        }
+
         document.addEventListener("DOMContentLoaded", function () {
            document.getElementById('control').addEventListener('click', control);
         });
