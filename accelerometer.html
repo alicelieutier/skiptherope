@@ -3,21 +3,39 @@
 <head>
 	<title>Accelerometer</title>
 	<script type="text/javascript">
+		var started = false;
+		var objectLogged = false;
 		function start () {
+			if (started) {
+				return;
+			}
+			started = true;
 			window.addEventListener("devicemotion", logAcceleration, true);
 		}
 
 		function stop() {
 			window.removeEventListener("devicemotion", logAcceleration);
+			started = false;
 		}
 
 		function logAcceleration(event) {
-		  var row = document.createElement('tr');
+		  	var row = document.createElement('tr');
+		  	if (!objectLogged) {
+		  		document.getElementById('object').textContent = JSON.stringify(event.acceleration);
+		  		objectLogged = true;
+		  	}
+		  	var x = event.acceleration.x;
+		  	var y = event.acceleration.y;
+		  	var z = event.acceleration.z;
+		  	var r = Math.sqrt(x*x + y*y + z*z);
+
 			row.innerHTML = "<tr> \
 				<td> " + Date.now() + " </td> \
-				<td> " + event.acceleration.toString() + " </td> \
-				<td> " + event.accelerationIncludingGravity.toString() + " </td> \
-				<td> " + event.interval.toString() + " </td> \
+				<td> " + x + " </td> \
+				<td> " + y + " </td> \
+				<td> " + z + " </td> \
+				<td> " + r + " </td> \
+				<td> " + event.interval + " </td> \
 				</tr>"
 			document.getElementById('results').appendChild(row);
 		}
@@ -31,13 +49,16 @@
 <body>
 	<button onclick="javascript:start();">Start</button>
 	<button onclick="javscript:stop();">Stop</button>
+	<p id="object"></p>
 	Results:
 	<table border="1">
 		<thead>
 			<tr>
-				<th>timestamp</th>
-				<th>acceleration</th>
-				<th>accelerationIncludingGravity</th>
+				<th>time</th>
+				<th>x</th>
+				<th>y</th>
+				<th>z</th>
+				<th>r</th>
 				<th>interval</th>
 			</tr>
 		</thead>
