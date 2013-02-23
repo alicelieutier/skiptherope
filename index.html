@@ -58,8 +58,8 @@
 
         function stop(event) {
             window.removeEventListener("devicemotion", count);
-            var weight = document.getElementById('weight').value;
-            var gender = document.getElementById('gender').value;
+            var weight = document.getElementById('weight').value || 70;
+            var gender = document.getElementById('gender').value || "x";
             var cal = calories(nb_of_skips, gender, weight);
 
             alert("Congrats, you just burnt " + cal.toFixed(1) + " calories! This is as much as " + bananas(cal).toFixed(3) + " bananas.");
