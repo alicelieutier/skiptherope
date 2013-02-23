@@ -22,16 +22,25 @@
 		<div id="skips">0</div>
 
         <div id="form">
-            <select name="select-jump" id="select-jump">
-                <option value="1" selected>Simple jumps</option>
-                <option value="2">Double jumps</option>
-            </select>
-            <select name="select-gender" id="gender">
-                <option value="x" selected>Undefined</option>
-                <option value="f">Female</option>
-                <option value="m">Male</option>
-            </select>
-            <input id="weight" type="number">kg
+            <div>
+                <label>Type of jumps</label>
+                <select name="select-jump" id="select-jump">
+                    <option value="1" selected>Simple jumps</option>
+                    <option value="2">Double jumps</option>
+                </select>
+            </div>
+            <div>
+                <label>Gender</label>
+                <select name="select-gender" id="gender">
+                    <option value="x" selected>Undefined</option>
+                    <option value="f">Female</option>
+                    <option value="m">Male</option>
+                </select>
+            </div>
+            <div>
+                <label>Weight in kg</label>
+                <input id="weight" type="number">
+            </div>
         </div>       
     </section>
     <script type="text/javascript">
@@ -90,13 +99,13 @@
             weight = 70;
             }
             if (gender==='f') {
-                calories = (0.37/200) * (8*3.5*weight) * (2*n/60);
+                calories = (0.37/200) * (8*3.5*weight) * (n/120);
             }
             if (gender==='m') {
-                calories = (1/200)*(8*3.5*weight)*(2*n/60);
+                calories = (1/200)*(8*3.5*weight)*(n/120);
             }
             else {
-                calories = (1/200)*(8*3.5*weight)*(2*n/60);
+                calories = (1/200)*(8*3.5*weight)*(n/120);
             }
             return calories;
         }
