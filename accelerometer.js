@@ -8,6 +8,7 @@ function start (event) {
 	this.addEventListener('click', stop);
 	nb_of_skips = 0;
 	above = false;
+	document.getElementById('skips').textContent = nb_of_skips;
 	window.addEventListener("devicemotion", count, true);
 }
 
