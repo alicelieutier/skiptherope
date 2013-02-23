@@ -62,7 +62,7 @@
             var gender = document.getElementById('gender').value;
             var cal = calories(nb_of_skips, gender, weight);
 
-            alert("Congrats, you just burnt " + cal + " calories! This is as much as " + bananas(cal) + " bananas.");
+            alert("Congrats, you just burnt " + cal.toFixed(1) + " calories! This is as much as " + bananas(cal).toFixed(3) + " bananas.");
         }
 
         function control(event) {
