@@ -14,7 +14,7 @@
 		}
 
 		function stop() {
-			window.removeEventListener("devicemotion", logAcceleration);
+			window.removeEventListener("devicemotion", logAcceleration, true);
 			started = false;
 		}
 
