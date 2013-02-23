@@ -4,15 +4,15 @@
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width">
    <script type="text/javascript" src="install.js"></script>
-	<script type="text/javascript" src="install.js"></script>
+   <script src="accelerometer.js" type="text/javascript" charset="utf-8"></script>
    <link rel="stylesheet" href="style.css" type="text/css" media="screen" title="no title" charset="utf-8">
    <title>Skip The Rope</title>
 </head>
 <body>
     <header class="bar">
-        <a href="javascript:history.back();">&lt;</a>
+        <!-- <a href="javascript:history.back();">&lt;</a> -->
         Skip the Rope
-        <button id="btnInstall" hidden>install</button>
+        <!-- <button id="btnInstall" hidden>install</button> -->
     </header>
     <!-- <nav class="bar">
         <a href="#home">go to home</a> or 
@@ -20,9 +20,9 @@
     </nav> -->
     <section id="home">
         <div id="control" class="start">Start skipping!</div>
-		<div id="skips">68</div>
+		<div id="skips">0</div>
 
-        <iframe src="https://www.facebook.com/plugins/like.php?href=http://alicelieutier.github.com/skiptherope/"
+        <iframe id="facebook" src="https://www.facebook.com/plugins/like.php?href=http://alicelieutier.github.com/skiptherope/"
         scrolling="no" frameborder="0"
         style="border:none; width:450px; height:80px"></iframe>
 
