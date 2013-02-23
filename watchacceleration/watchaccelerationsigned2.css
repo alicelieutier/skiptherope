@@ -1,0 +1,18 @@
+#front {
+	position: absolute;
+	background-image: url("Default.png"); 
+	top: 0px;
+	left: 0px;
+	width: 235px;
+	height: 158px;
+}
+
+#hello {
+	position: absolute;
+	color: white;
+	top: 65px;
+	left: 45px;
+	width: 180px;
+	height: 50px;
+	font: 24px "verdana";
+}
