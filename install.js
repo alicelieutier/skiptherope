@@ -67,38 +67,6 @@ function Install() {
          that.error = error;
          that.triggerChange("failed");
       };
-   }else if ((typeof chrome !== "undefined") && chrome.webstore && chrome.app) {
-      if (!chrome.app.isInstalled) {
-         this.triggerChange("uninstalled");
-         var that = this;
-         this.doIt = function() {
-            chrome.webstore.install(
-               null,
-               function () { that.triggerChange("installed"); },
-               function (err) {
-                  that.error = err;
-                  that.triggerChange("failed");
-               }
-            );
-         };
-      }else {
-         this.triggerChange("installed");
-      }
-   }else if (typeof window.navigator.standalone !== "undefined") {
-      if (!window.navigator.standalone) {
-         this.triggerChange("uninstalled");
-         /*
-         | Right now, just asks that something show a UI element mentioning
-         | how to install using Safari's "Add to Home Screen" button.
-         */
-         this.doIt = function() {
-            this.trigger("showiOSInstall", navigator.platform.toLowerCase());
-         };
-      }else {
-         this.triggerChange("installed");
-      }
-   }else {
-      this.triggerChange("unsupported");
    }
    return this;
 }
@@ -113,10 +81,11 @@ function setInstallButton(buttonId) {
          "change",
          function() {
             buttonElt.style.display = (
-               (install.state == "uninstalled")? "table-cell" : "none"
+               (install.state == "uninstalled")? "block" : "none"
             );
             if (install.state == "failed") {
                alert("Install failed:\n" + install.error);
+               console.log(install.error);
             }
          }
       );
