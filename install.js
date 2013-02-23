@@ -89,15 +89,6 @@ function setInstallButton(buttonId) {
             }
          }
       );
-      install.on(
-         "showiOSInstall",
-         function() {
-            alert(
-               "To install, press the forward arrow in Safari " +
-               "and touch \"Add to Home Screen\""
-            );
-         }
-      );
       buttonElt.addEventListener(
          "click", function() { install.doIt(); }
       );
