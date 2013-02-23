@@ -4,7 +4,6 @@
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width">
    <script type="text/javascript" src="install.js"></script>
-   <script src="accelerometer.js" type="text/javascript" charset="utf-8"></script>
    <link rel="stylesheet" href="style.css" type="text/css" media="screen" title="no title" charset="utf-8">
    <title>Skip The Rope</title>
 </head>
@@ -12,14 +11,14 @@
     <header class="bar">
         <!-- <a href="javascript:history.back();">&lt;</a> -->
         Skip the Rope
-        <!-- <button id="btnInstall" hidden>install</button> -->
+        <button id="btnInstall" hidden>install</button>
     </header>
     <!-- <nav class="bar">
         <a href="#home">go to home</a> or 
         <a href="#page">go to page</a>
     </nav> -->
     <section id="home">
-        <div id="control" class="start">Start skipping!</div>
+        <div id="control" class="">Start skipping!</div>
 		<div id="skips">0</div>
 
         <iframe id="facebook" src="https://www.facebook.com/plugins/like.php?href=http://alicelieutier.github.com/skiptherope/"
@@ -27,14 +26,53 @@
         style="border:none; width:450px; height:80px"></iframe>
 
     </section>
-    <section id="page">
-        <p>this is a page.</p>
-    </section>
     <script type="text/javascript">
-        var url = window.location.toString();
-        if (url.indexOf('#') === -1) {
-            window.location = url + '#home';
+        var threshold = 8;
+        var above = false;
+        var nb_of_skips = 0;
+        var started = false;
+
+        function start(event) {
+            nb_of_skips = 0;
+            above = false;
+            document.getElementById('skips').textContent = 0;
+            window.addEventListener("devicemotion", count);
         }
+
+        function stop(event) {
+            window.removeEventListener("devicemotion", count);
+        }
+
+        function control(event) {
+            if (!started) {
+                start();
+                this.textContent = "STOP";
+                this.classList.add('stop');
+            } else {
+                stop();
+                this.textContent = "Start skipping!";
+                this.classList.remove('stop');
+            } 
+            started = !started; 
+        }
+
+        function count(event) {
+            if (event.acceleration.y > 8) {
+                above = true;
+                return;
+            }
+            // if we are here, then we are underneath the threshold
+            if (above) {
+                nb_of_skips += 1;
+                above = false;
+                document.getElementById('skips').textContent = nb_of_skips;
+            }
+            return; 
+        }
+        document.addEventListener("DOMContentLoaded", function () {
+           document.getElementById('control').addEventListener('click', control);
+        });
+
     </script>
 </body>
 </html>

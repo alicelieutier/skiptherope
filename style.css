@@ -1,34 +1,30 @@
 body {margin:0; font-family: arial; font-size: 20px; background: coral}
-body > section {display: none; padding-top: 80px;}
-body > section:target {display:block;}
 header {background-color: black; color: white; top: 0; font-size: 30px; padding-top: 5px;}
 .bar {width: 100%; height: 40px; overflow: hidden; text-align: center; position: fixed;}
 #home { 
 	margin-top: 40px;
 	background: url('images/skip_rope.png') no-repeat scroll top left;
-	background-size: contain; 
-	min-height: 350px;
+	background-size: contain;
 	padding: 20px;
+	overflow: hidden;
 }
 #control {
-	width: 120px;
+	width: 110px;
 	height: 80px;
 	background-size: contain;
 	background-repeat: no-repeat;
 	float:right;
 	color: white;
 	padding: 50px 10px;
-}
-#control.start {
 	background-image: url('images/play.png');
+	cursor: pointer;
 }
 #control.stop {
 	background-image: url('images/stop.png');
+	text-align: center;
 }
 #skips {
 	clear: both;
-	display: block;
-	float: right;
 	font-size: 130px;
 	padding-right: 20px;
 	text-align: right;
@@ -36,3 +32,4 @@ header {background-color: black; color: white; top: 0; font-size: 30px; padding-
 #facebook {
 	clear: both;
 }
+#btnInstall {display: block; float: right; color: white; background: black; border: none; }

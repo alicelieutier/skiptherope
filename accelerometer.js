@@ -1,23 +1,29 @@
-var threshold = 20;
+var threshold = 8;
 var above = false;
 var nb_of_skips = 0;
-function start (event) {
-	this.removeEventListener("click", start);
-	this.classList.remove('start');
-	this.classList.add('stop');
-	this.addEventListener('click', stop);
+var started = false;
+
+function start(event) {
 	nb_of_skips = 0;
 	above = false;
-	document.getElementById('skips').textContent = nb_of_skips;
-	window.addEventListener("devicemotion", count, true);
+	document.getElementById('skips').textContent = 0;
+	window.addEventListener("devicemotion", count);
 }
 
-function stop() {
-	window.removeEventListener("devicemotion", count, true);
-	this.removeEventListener("click", stop);
-	this.classList.remove('stop');
-	this.classList.add('start');
-	this.addEventListener('click', start);
+function stop(event) {
+	window.removeEventListener("devicemotion", count);
+}
+
+function control(event) {
+	if (!started) {
+		start();
+		this.textContent = "STOP";
+		this.classList.add('stop');
+	} else {
+		stop();
+		this.textContent = "Start skipping!";
+		this.classList.remove('stop');
+	}	
 }
 
 function count(event) {
