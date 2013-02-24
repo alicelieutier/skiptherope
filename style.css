@@ -1,21 +1,21 @@
 body {margin:0; font-family: arial; font-size: 20px; background: rgb(105,250,250)}
 header {background-color: black; color: white; top: 0; font-size: 30px; padding-top: 5px;}
-.bar {width: 100%; height: 40px; overflow: hidden; text-align: center; position: fixed;}
+.bar {width: 100%; height: 45px; overflow: hidden; text-align: center; position: fixed;}
 #home { 
-	margin-top: 40px;
-	background: url('images/skip_rope.png') no-repeat scroll top left;
+	margin-top: 50px;
+	background: url('images/skip_rope.png') no-repeat left top;
+	background-position: 10px 0px;
 	background-size: contain;
 	padding: 20px;
-	overflow: hidden;
 }
 #control {
 	width: 110px;
-	height: 50px;
+	height: 27px;
 	background-size: contain;
 	background-repeat: no-repeat;
 	float:right;
 	color: white;
-	padding: 50px 10px;
+	padding: 55px 10px;
 	background-image: url('images/play.png');
 	cursor: pointer;
 }
