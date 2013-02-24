@@ -115,7 +115,11 @@
         }
 
         document.addEventListener("DOMContentLoaded", function () {
-           document.getElementById('control').addEventListener('click', control);
+            if (!window.DeviceMotionEvent) {
+                alert("devicemotion not supported on your device or browser. Try this in an other browser or device. (Safari on iOS or Firefox on Android work great :) )");
+            }
+
+            document.getElementById('control').addEventListener('click', control);
         });
 
     </script>
