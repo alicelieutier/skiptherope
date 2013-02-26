@@ -12,4 +12,6 @@ For example, you can try:
 - Firefox on Android
 - natively on Firefox OS :)
 
-Thanks to th London Facebookthe nice install functionality based on [fxosstub](https://github.com/Jaxo/fxosstub).
+Thanks to London Facebook for organising the women in computing hack.
+
+The nice install functionality for Firefox is based on [fxosstub](https://github.com/Jaxo/fxosstub).
