@@ -1,6 +1,7 @@
 # Skip The Rope
 
 This is a fun webapp that counts skips when you're rope jumping.
+Test it [here](http://alicelieutier.github.com/skiptherope/).
 
 It was built by Sofia and I during a day hackaton in Facebook, London. This app made first place! :)
 
